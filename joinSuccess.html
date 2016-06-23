@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VIPABC</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div class="content">
+    <table id="__01" class="table"  cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="td-red">
+                <img src="image/4-2_01.jpg" class="table-img" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="font-div">
+                    <p class="p-front" id="pname"></p>
+                    <p class="p-front">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您已成功参与vipabc本次</p>
+                    <p class="p-front">的团购活动，我们的客服人员将</p>
+                    <p class="p-front">尽快与您联系。</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-inner-div3">
+                    <div class="span4-2-down1">
+                        感谢您的参与!
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/4-2_161.png" class="table-img" alt="">
+            </td>
+        </tr>
+    </table>
+    <script type="application/javascript">
+        var reg = new RegExp("(^|&)name=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null){
+            document.getElementById('pname').innerHTML = '尊敬的：'+decodeURI(r[2])+'先生/女士';
+        }
+    </script>
+</div>
+</body>
+</html>

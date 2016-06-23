@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VIPABC</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0">
+<div class="content">
+    <table id="__01" class="table" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <img src="image/3_01.png" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/3_02.png" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/4_03.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="btn-div">
+                    <img src="image/4-2_07.jpg" class="table-img" alt="">
+                    <span class="imageFont" id="info">顾先生 邀请您参与TA发起的团购</span>
+                    <!--<span class="imageFont" id="error" style="display: none;"></span>-->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <!--<img src="image/3_05.jpg" class="table-img" alt="">-->
+                <div style="height: 15px;background-color: #c01420;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-div">
+                    <div class="old-inner-div">
+                        <label for="username" class="label-long">姓名:</label>
+                        <input type="text" id="username" class="input-long" onblur="checkName()"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="small-tr">
+            <td class="td-red">
+                <img src="image/3_07.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-div">
+                    <div class="old-inner-div">
+                        <label for="phone" class="label-long">电话:</label>
+                        <input type="tel" id="phone" class="input-long" onblur="checkPhone()"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="small-tr">
+            <td class="td-red">
+                <img src="image/3_07.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-div">
+                    <div class="old-inner-div">
+                        <label for="mail" class="label-long">邮箱:</label>
+                        <input type="email" id="mail" class="input-long" onblur="checkMail()"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <!--<img src="image/3_09.jpg" class="table-img" alt="">-->
+                <div class="sub-div"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="btn-div">
+                    <img src="image/submit1.png" class="table-img" alt=""/>
+
+                    <div class="submit-btn" onclick="_submit()"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<script type="application/javascript">
+    function showToast(msg, duration) {
+        var mm = document.getElementById('toastDiv');
+        if (mm) {
+            document.body.removeChild(mm);
+        }
+        duration = isNaN(duration) ? 3000 : duration;
+        var m = document.createElement('div');
+        m.innerHTML = msg;
+        m.setAttribute('id', 'toastDiv');
+        m.setAttribute('class', 'toastDiv');
+        document.body.appendChild(m);
+        setTimeout(function () {
+            var d = 0.5;
+            m.style.webkitTransition = '-webkit-transform ' + d
+                    + 's ease-in, opacity ' + d + 's ease-in';
+            m.style.opacity = '0';
+            setTimeout(function () {
+                document.body.removeChild(m)
+            }, d * 1000);
+        }, duration);
+    }
+
+    function checkName() {
+        var username = document.getElementById('username').value;
+        if (!username || username == '') {
+            showToast("姓名不能为空");
+            console.log(111);
+            return false;
+        }
+        console.log(222);
+        return true;
+    }
+
+    function checkPhone() {
+        var phone = document.getElementById('phone').value;
+        if (!phone || phone == '') {
+            showToast("电话不能为空");
+            return false;
+        }
+        var telReg = /^(?:13\d|14\d|15\d|17\d|18\d)\d{5}(\d{3}|\*{3})$/;
+        if (!telReg.test(phone)) {
+            showToast("您输入的电话有误,请重新核对后再输入!");
+            return false;
+        }
+
+        return true;
+    }
+
+    function checkMail() {
+        var mail = document.getElementById('mail').value;
+
+        if (!mail) {
+            showToast("邮箱不能为空");
+            return false;
+        }
+
+        var emailReg = /^([a-zA-Z-z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z\.]{2,6})$/;
+        if (!emailReg.test(mail)) {
+            showToast("您输入的邮箱有误,请重新核对后再输入!");
+            return false;
+        }
+
+        return true;
+    }
+
+    function _submit() {
+        var name = document.getElementById('username').value;
+        if (checkName() && checkPhone() && checkMail()) {
+            window.location.href = 'joinSuccess.html?name=' + encodeURI(name);
+        }
+    }
+</script>
+</body>
+</html>

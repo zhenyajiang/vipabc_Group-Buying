@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VIPABC</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="#FFFFFF" marginwidth="0" marginheight="0">
+<div class="content">
+    <table id="__01" class="table" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <img src="image/3_01.png" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/3_02.png" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/3_03.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/3_04.png" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/3_05.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-div">
+                    <div class="old-inner-div">
+                        <label for="acct" class="label-long">账 号:</label>
+                        <input type="email" id="acct" class="input-long" onblur="checkMail()" placeholder="请输入您的登录邮箱"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/3_07.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <div class="old-div">
+                    <div class="old-inner-div">
+                        <label for="pwd" class="label-long">密 码:</label>
+                        <input type="password" id="pwd" class="input-long" onblur="checkPwd()" placeholder="请输入您的登录密码"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-red">
+                <img src="image/3_09.jpg" class="table-img" alt=""></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="btn-div">
+                    <img src="image/login11.png" class="table-img" alt=""/>
+
+                    <div class="submit-btn" onclick="aa()"></div>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<script type="application/javascript">
+    function showToast(msg, duration) {
+        duration = isNaN(duration) ? 3000 : duration;
+        var m = document.createElement('div');
+        m.innerHTML = msg;
+        m.setAttribute('class', 'toastDiv');
+        document.body.appendChild(m);
+        setTimeout(function () {
+            var d = 0.5;
+            m.style.webkitTransition = '-webkit-transform ' + d
+                    + 's ease-in, opacity ' + d + 's ease-in';
+            m.style.opacity = '0';
+            setTimeout(function () {
+                document.body.removeChild(m)
+            }, d * 1000);
+        }, duration);
+    }
+
+    function checkPwd() {
+        var pwd = document.getElementById('pwd').value;
+
+        if (!pwd) {
+            showToast("密码不能为空");
+            return false;
+        }
+
+        return true;
+    }
+
+    function checkMail() {
+        var acct = document.getElementById('acct').value;
+
+        if (!acct) {
+            showToast("账号不能为空");
+            return false;
+        }
+
+        var emailReg = /^([a-zA-Z-z0-9_\.-]+)@([\da-zA-Z\.-]+)\.([a-zA-Z\.]{2,6})$/;
+        if (!emailReg.test(acct)) {
+            showToast("您输入的邮箱有误,请重新核对后再输入!");
+            return false;
+        }
+
+        return true;
+    }
+
+
+    function aa() {
+        if (checkMail() && checkPwd()) {
+            window.location.href = 'reward.html';
+        }
+    }
+</script>
+</body>
+</html>

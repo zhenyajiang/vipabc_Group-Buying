@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VIPABC</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="content">
+    <div class="head-div">
+        <img src="image/29.png" class="image">
+
+    </div>
+    <div class="center-div">
+        <img src="image/30.png" class="image">
+
+        <div class="center-inner" onclick="older()"></div>
+    </div>
+    <div class="bottom-div">
+        <img src="image/283.png" class="image">
+
+        <div class="bottom-inner1" onclick="newer()"></div>
+        <div class="bottom-inner2" onclick="newer()"></div>
+    </div>
+</div>
+<script type="application/javascript">
+    function older() {
+        window.location.href = 'olderLogin.html';
+    }
+
+    function newer() {
+        window.location.href = 'newerLogin.html';
+    }
+</script>
+</body>
+</html>
